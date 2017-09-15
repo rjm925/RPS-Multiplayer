@@ -1,6 +1,8 @@
+//Hiding Choices
 $("#options1").hide();
 $("#options2").hide();
 
+//Setting up firebase
 var config = {
   apiKey: "AIzaSyD1oAwO92JTw2w33S2RDuCN9IToILgz86U",
   authDomain: "rps-multiplayer-16932.firebaseapp.com",
@@ -11,6 +13,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
+//Initialize Variables
 var userID = "";
 var player;
 var vacant;
@@ -21,9 +24,11 @@ var turns = database.ref("/turns");
 var chat = database.ref("/chat");
 var connectedRef = database.ref(".info/connected");
 
+//When a player leaves resets
 turns.onDisconnect().remove();
 chat.onDisconnect().remove();
 
+//Add and setup player and checks how many are playing
 $("#submit").on("click", function(event) {
 	event.preventDefault();
 
@@ -86,6 +91,7 @@ $("#submit").on("click", function(event) {
 	});
 });
 
+//Displays initial win/loss record of player
 players.on("child_added", function(snapshot) {
 	var sv = snapshot.val();
 	if (sv.value === 1) {
@@ -100,6 +106,7 @@ players.on("child_added", function(snapshot) {
 	}
 });
 
+//Determines which player leaves and displays message accordingly
 players.on("child_removed", function(snapshot) {
 	var sv = snapshot.val();
 	if (sv.value === 1) {
@@ -138,6 +145,7 @@ players.on("child_removed", function(snapshot) {
 	$("#play2").css("border", "solid black");
 });
 
+//Game function, 3 turns per round
 turns.on("value", function(snapshot) {
 	if (snapshot.val().turnNum === 1) {	
 		$("#input").hide();
@@ -189,6 +197,7 @@ turns.on("value", function(snapshot) {
 	}
 });
 
+//Player chooses their pick and stores in database
 $(".choices").on("click", function() {
 	if (player === 1) {
 		choice1 = $(this).attr("value");
@@ -214,6 +223,7 @@ $(".choices").on("click", function() {
 	}
 });
 
+//Compare the players choices and picks a winner
 function result(one, two) {
 	if (one === two) {
 		$("#message").text("Tie!");
@@ -244,6 +254,7 @@ function result(one, two) {
 	$("#record2").html("Wins: " + winsTwo + " Losses: " + lossesTwo);
 }
 
+//Chat function
 $("#addMessage").on("click", function (event) {
 	event.preventDefault();
 
@@ -268,6 +279,7 @@ $("#addMessage").on("click", function (event) {
 	}
 })
 
+//Displays chat message in box
 chat.on("child_added", function(snapshot) {
 	var line = snapshot.val().message;
 	var person = snapshot.val().name;
