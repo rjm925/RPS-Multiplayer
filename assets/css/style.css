@@ -1,0 +1,34 @@
+.container {
+	text-align: center;
+}
+
+#submit {
+	margin-left: 5px;
+}
+
+.col-sm-2, .col-sm-3 {
+	height: 200px;
+	border: solid;
+}
+
+h3 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#chatBox {
+	text-align: left;
+	height: 200px;
+	border: solid black;
+	margin-top: 25px;
+	padding: 5px;
+	overflow-y: auto;
+}
+
+#message-input {
+	width: 90%;
+}
+
+.choices:hover {
+	background-color: #f3f3f3;
+}

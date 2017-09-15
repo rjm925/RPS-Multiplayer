@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>RPS-Multiplayer</title>
+
+		<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	</head>
+
+	<body>
+		<div class="container">
+
+			<div class="row">
+				<h1>Rock Paper Scissors Multiplayer</h1>				
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-4">
+					<form id="input">
+						<span><input type="text" id="input-name" placeholder="Name"><input type="submit" value="Start" id="submit"></span>
+					</form>
+					<p id="message1"></p>
+					<p id="message2"></p>
+				</div>
+			</div>
+
+			<br>
+
+			<div class="row">
+				<div class="col-sm-3 col-sm-offset-1" id="play1">
+					<h3 id="player1">Waiting for player 1</h3>
+					<p id="record1"></p>
+					<h3 id="pick1"></h3>
+					<div id="options1">
+						<p class="choices" value="Rock">Rock</p>
+						<p class="choices" value="Paper">Paper</p>
+						<p class="choices" value="Scissors">Scissors</p>
+					</div>
+				</div>
+				<div class="col-sm-2 col-sm-offset-1">
+					<h1 id="message"></h1>
+				</div>
+				<div class="col-sm-3 col-sm-offset-1" id="play2">
+					<h3 id="player2">Waiting for player 2</h3>
+					<p id="record2"></p>
+					<h3 id="pick2"></h3>
+					<div id="options2">
+						<p class="choices" value="Rock">Rock</p>
+						<p class="choices" value="Paper">Paper</p>
+						<p class="choices" value="Scissors">Scissors</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+					<div class="row" id="chatBox"></div>
+					<div class="row">
+						<form id="message-form">
+							<input type="text" id="message-input" placeholder="Message">
+							<input id="addMessage" type="submit" value="Send">
+						</form>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script src="assets/javascript/app.js"></script>
+	</body>
+</html>
