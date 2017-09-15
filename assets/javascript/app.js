@@ -105,7 +105,10 @@ players.on("child_removed", function(snapshot) {
 	if (sv.value === 1) {
 		$("#player1").text("Waiting for player 1");
 		$("#record1").empty();
-		$("#chatBox").append("PLAYER 1 HAS DISCONNECTED" + "<br>");
+		chat.push({
+			name: "Game Master",
+			message: "PLAYER 1 HAS DISCONNECTED"
+		})
 		if (player === 2) {
 			$("#message2").html("Waiting for another player to join.");
 		}
@@ -116,7 +119,10 @@ players.on("child_removed", function(snapshot) {
 	if (sv.value === 2) {
 		$("#player2").text("Waiting for player 2");
 		$("#record2").empty();
-		$("#chatBox").append("PLAYER 2 HAS DISCONNECTED" + "<br>");	
+		chat.push({
+			name: "Game Master",
+			message: "PLAYER 2 HAS DISCONNECTED"
+		})
 		if (player === 1) {
 			$("#message2").html("Waiting for another player to join.");
 		}
