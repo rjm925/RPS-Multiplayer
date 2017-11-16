@@ -141,8 +141,8 @@ players.on("child_removed", function(snapshot) {
 	$("#options2").hide();
 	$("#pick1").empty();
 	$("#pick2").empty();
-	$("#play1").css("border", "solid black");
-	$("#play2").css("border", "solid black");
+	$("#play1").css("border", "solid");
+	$("#play2").css("border", "solid");
 });
 
 //Game function, 3 turns per round
@@ -159,7 +159,7 @@ turns.on("value", function(snapshot) {
 		}
 	}
 	if (snapshot.val().turnNum === 2) {
-		$("#play1").css("border", "solid black");
+		$("#play1").css("border", "solid");
 		$("#play2").css("border", "solid yellow");
 		if(player === 1) {
 			$("#message2").html("Waiting for other player to choose");
@@ -171,7 +171,7 @@ turns.on("value", function(snapshot) {
 		}
 	}
 	if (snapshot.val().turnNum === 3) {
-		$("#play2").css("border", "solid black");
+		$("#play2").css("border", "solid");
 		players.once("value",function(snapshot) {
 			var sv = snapshot.val();
 			choiceOne = sv[1].choice;
